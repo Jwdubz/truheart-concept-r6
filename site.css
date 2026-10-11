@@ -471,3 +471,19 @@ body.menu-open .spine{opacity:0}
 .menu-s a{display:inline-flex;align-items:center;min-height:44px;padding:0 18px;border:1.5px solid rgba(243,241,236,.6);border-radius:999px;color:#f3f1ec;text-decoration:none;font:600 16px UI}
 .menu-s a:hover{background:#f3f1ec;color:#cf2d20}
 @media (max-width:900px){.acc-p>.acc-in>p{margin-left:44px}.acc-ecg{width:calc(100% - 44px)}}
+
+/* ===== r8: Roman ===== */
+.story-grid{display:grid;grid-template-columns:minmax(0,5fr) minmax(0,7fr);gap:clamp(28px,5vw,96px);align-items:end;margin-top:8vh}
+.story-pic{margin:0;position:relative}
+.story-pic img{width:100%;height:auto;display:block;border-radius:6px}
+.story-pic figcaption{display:flex;gap:10px;align-items:baseline;padding-top:14px;font:600 17px UI}
+.story-pic figcaption em{font-style:normal;color:#cf2d20}
+.story-copy .statement p{font-size:clamp(24px,2.3vw,40px);margin:0 0 3vh}
+.story-copy .body{opacity:.9}
+.rq{margin:5vh 0 0;padding:0 0 0 22px;border-left:4px solid #cf2d20}
+.rq p{font-family:UI;font-weight:600;font-size:clamp(20px,1.7vw,28px);line-height:1.25;letter-spacing:-.02em;margin:0 0 10px}
+.rq cite{font:500 15px UI;font-style:normal;opacity:.85}
+.rq-close{border-left-color:#0b0b0b;margin:0 0 3vh}
+.case-num strong{font-size:clamp(48px,4.8vw,92px)}
+.case-num span{line-height:1.35}
+@media (max-width:900px){.story-grid{grid-template-columns:1fr;margin-top:5vh}.story-pic{max-width:330px}}
