@@ -567,4 +567,26 @@ a:not(.btn){transition:color .2s ease,opacity .2s ease}
 .wpts li:last-child strong{bottom:20px}
 @media (max-width:900px){.wpts li:nth-child(n+2):nth-child(-n+7) strong{display:none}.wpts li:nth-child(4) strong{display:block}}
 
-.wline{clip-path:inset(-10% 100% -10% 0);transition:clip-path 2.4s cubic-bezier(.65,0,.35,1)}.wline.on{clip-path:inset(-10% -2% -10% 0)}
+.wline{clip-path:inset(-10% 100% -10% 0);transition:clip-path 3.6s cubic-bezier(.65,0,.35,1)}.wline.on{clip-path:inset(-10% -2% -10% 0)}
+/* ===== r10 ===== */
+.hero .hl .w.payoff{opacity:.16;transform:none}.hero .hl .w.payoff.on{opacity:1}
+.hero .lede{position:relative}
+.bpm{margin:14px 0 0;font:600 14px UI;letter-spacing:.06em;text-transform:uppercase;display:flex;align-items:center;gap:8px}
+.bpm span{font:700 22px UI;font-variant-numeric:tabular-nums;color:#cf2d20;min-width:2.2ch}
+.bpm em{font-style:normal;opacity:.6;font-weight:500;letter-spacing:.02em;text-transform:none}
+.bpm i{width:9px;height:9px;border-radius:50%;background:#cf2d20;animation:bpmd 1.3s ease-in-out infinite}
+@keyframes bpmd{0%,30%,100%{transform:scale(1);opacity:.6}12%{transform:scale(1.6);opacity:1}}
+.paused .bpm i{animation:none}
+/* accordion hover: keep title visible */
+.acc-b:hover .acc-t,.acc-b:hover h3{color:inherit}
+.acc-b:hover .acc-t{transform:translateX(18px);text-decoration:underline;text-decoration-thickness:.06em;text-underline-offset:.08em;text-decoration-color:currentColor}
+/* tighter bands */
+.wires{padding:10vh var(--pad) 8vh}.praise{padding:10vh var(--pad) 9vh}
+.wchart{margin-top:6vh}.money{margin-top:6vh}.pwall{margin-top:5vh}
+.creed{padding:12vh var(--pad) 8vh}
+@media (max-width:900px){.wires,.praise{padding:8vh 16px 6vh}.creed{padding:9vh 16px 6vh}.bpm em{display:none}}
+@media (min-width:901px){
+ .beats li.big{transform:translate(calc(-100% - 14px),-110%);align-items:flex-end;text-align:right}
+ .beats li.big.on,.paused .beats li.big,.no-anim .beats li.big{transform:translate(calc(-100% - 14px),-120%)}
+ .beats li.big::before{left:auto;right:-20px}
+}
