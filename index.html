@@ -8,7 +8,7 @@
 <meta name="description" content="Tru Heart Consulting builds high-performing sales teams and empowers leaders to take charge and deliver results. Tukwila, WA.">
 <meta name="theme-color" content="#0b0b0b">
 <link rel="preload" href="fonts/Display.woff2" as="font" type="font/woff2" crossorigin>
-<link rel="stylesheet" href="site.css?v=5">
+<link rel="stylesheet" href="site.css?v=8">
 <script>document.documentElement.classList.add('js')</script>
 </head>
 <body>
@@ -20,25 +20,37 @@
   <div class="bar-ctas">
     <button class="btn btn-ghost pause" id="pause" type="button" aria-pressed="false">Pause</button>
     <a class="btn btn-ghost call" href="tel:+12066576416">Call (206) 657-6416</a>
-    <a class="btn btn-red" href="#talk">Start The Conversation</a>
+    <a class="btn btn-red cta-top" href="#talk">Start The Conversation</a>
+    <button class="btn btn-ghost mbtn" id="mbtn" type="button" aria-expanded="false" aria-controls="menu"><span class="mb-ico" aria-hidden="true"><i></i><i></i></span><span class="mb-t">Menu</span></button>
   </div>
 </header>
+<div class="menu" id="menu" role="dialog" aria-modal="true" aria-label="Menu" hidden>
+  <svg class="menu-pulse" viewBox="0 0 1200 120" preserveAspectRatio="none" aria-hidden="true"><path d="M0 60H420L450 60 470 18 498 104 522 6 548 92 566 60H1200"/></svg>
+  <ul class="menu-l">
+    <li><a href="#talk" data-close>Start The Conversation</a></li>
+    <li><a href="tel:+12066576416">Call (206) 657-6416</a></li>
+    <li><a href="mailto:careers@truheartconsultinginc.com">Email Us</a></li>
+  </ul>
+  <div class="menu-f"><span>565 Andover Park W, Ste 102</span><span>Tukwila, WA 98188</span></div>
+</div>
 
 <main id="top">
 <section class="hero" data-bg="#0b0b0b" data-fg="#f3f1ec">
-  <div class="hero-grid">
-    <div class="hero-type">
-      <p class="eyebrow">Outsourced Sales And Marketing</p>
-      <h1 class="hl" aria-label="Start With Heart.">
-        <span class="w w1">Start</span>
-        <span class="w w2">With</span>
-        <span class="w w3 payoff">Heart<b>.</b></span>
-      </h1>
-    </div>
-    <figure class="film hero-film">
+  <div class="hero-stage">
+    <figure class="hero-film">
       <video id="heroVid" src="media/hero.mp4" poster="media/hero-poster.jpg" muted loop playsinline autoplay preload="auto" width="1276" height="720"></video>
     </figure>
-    <p class="lede">We build high-performing sales teams and empower leaders to take charge and deliver results.</p>
+  <div class="hero-grid">
+      <div class="hero-type">
+        <p class="eyebrow">Outsourced Sales And Marketing</p>
+        <h1 class="hl" aria-label="Start With Heart.">
+          <span class="w w1">Start</span>
+          <span class="w w2">With</span>
+          <span class="w w3 payoff">Heart<b>.</b></span>
+        </h1>
+      </div>
+      <p class="lede">We build high-performing sales teams and empower leaders to take charge and deliver results.</p>
+    </div>
   </div>
   <div class="ticker" aria-label="Results">
     <div class="ticker-track">
@@ -58,6 +70,28 @@
   </div>
 </section>
 
+
+<section class="pulse" data-bg="#0b0b0b" data-fg="#f3f1ec" aria-labelledby="pulse-h">
+  <div class="pulse-pin">
+    <div class="pulse-head">
+      <p class="eyebrow">The Pulse</p>
+      <h2 class="h2" id="pulse-h">Every Beat Is A Rep Who Closed<b>.</b></h2>
+    </div>
+    <div class="pulse-chart">
+      <svg class="pulse-svg" viewBox="0 0 1600 400" preserveAspectRatio="none" aria-hidden="true">
+        <path class="pl-base" d="M0 300H1600"/>
+        <path class="pl" d="M0 300H170L200 300 222 262 246 330 270 120 296 316 318 300H520L548 300 568 270 590 324 612 210 636 312 656 300H860L886 300 904 276 924 320 944 236 966 310 984 300H1180L1214 300 1240 240 1268 340 1300 30 1334 330 1360 300H1600"/>
+      </svg>
+      <ol class="beats">
+        <li style="--x:16.9%;--y:30%"><strong>$14,760.50</strong><span>Ismail Sharif-Adam</span></li>
+        <li style="--x:38.2%;--y:52.5%"><strong>$5,000</strong><span>Aqsa Jalal</span></li>
+        <li style="--x:59%;--y:59%"><strong>$2,848</strong><span>Daevon Swansey</span></li>
+        <li style="--x:81.2%;--y:7.5%" class="big"><strong>$67,291</strong><span>This Past Month</span></li>
+      </ol>
+    </div>
+  </div>
+</section>
+
 <section class="proof" data-bg="#f3f1ec" data-fg="#0b0b0b">
   <div class="proof-head">
     <p class="eyebrow">For Brands</p>
@@ -65,7 +99,7 @@
     <p class="body">By partnering with top national brands, we deliver strategies that drive performance and long-term growth.</p>
   </div>
   <figure class="film proof-film">
-    <video src="media/cheque.mp4" poster="media/cheque-poster.jpg" muted loop playsinline preload="metadata" width="1080" height="608" class="lazyplay"></video>
+    <video data-src="media/cheque.mp4" poster="media/cheque-poster.jpg" muted loop playsinline preload="none" width="1080" height="608" class="lazyplay"></video>
     <figcaption>Ismail Sharif-Adam <em>$14,760.50</em></figcaption>
   </figure>
   <ul class="stats">
@@ -101,7 +135,7 @@
 
 <section class="culture" data-bg="#0b0b0b" data-fg="#f3f1ec">
   <figure class="film reel">
-    <video src="media/golf.mp4" poster="media/golf-poster.jpg" muted loop playsinline preload="metadata" width="720" height="898" class="lazyplay"></video>
+    <video data-src="media/golf.mp4" poster="media/golf-poster.jpg" muted loop playsinline preload="none" width="720" height="898" class="lazyplay"></video>
   </figure>
   <div class="culture-type">
     <p class="eyebrow">Why Tru Heart</p>
@@ -125,7 +159,7 @@
     <label class="full"><span>What Are You Launching?</span><textarea name="msg" rows="2"></textarea></label>
     <div class="full form-foot">
       <button class="btn btn-red" type="submit">Start The Conversation</button>
-      <p class="fine">Opens your email app to careers@truheartconsultinginc.com.</p>
+      <p class="fine">Opens Your Email App, Addressed To Tru Heart.</p>
     </div>
   </form>
 </section>
@@ -133,7 +167,7 @@
 
 <footer class="foot" data-bg="#0b0b0b" data-fg="#f3f1ec">
   <p class="foot-mark">Tru Heart<i>.</i></p>
-  <p>565 Andover Park W, Ste 102, Tukwila, WA 98188<br><a href="tel:+12066576416">(206) 657-6416</a> &nbsp; <a href="mailto:careers@truheartconsultinginc.com">careers@truheartconsultinginc.com</a></p>
+  <p>565 Andover Park W, Ste 102, Tukwila, WA 98188<br><a href="tel:+12066576416">(206) 657-6416</a> &nbsp; <a href="mailto:careers@truheartconsultinginc.com">Email Us</a></p>
   <a class="btn btn-ghost totop" href="#top">Back To Top</a>
   <p class="credit">&copy; 2026 Tru Heart Consulting, Inc. Design Concept By Jarrett Wroten, Not Tru Heart&rsquo;s Official Website.</p>
 </footer>
@@ -142,6 +176,6 @@
 <script src="vendor/gsap.min.js"></script>
 <script src="vendor/ScrollTrigger.min.js"></script>
 <script src="vendor/lenis.min.js"></script>
-<script src="site.js?v=5"></script>
+<script src="site.js?v=7"></script>
 </body>
 </html>
