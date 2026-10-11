@@ -1,9 +1,9 @@
 (function(){
 var d=document,root=d.documentElement,paused=false;
-var hv=d.getElementById('heroVid'),pay=d.querySelector('.payoff'),PAY=3.85;
+var hv=d.getElementById('heroVid'),pay=d.querySelector('.payoff'),PAY=5.55;
 function land(){if(!pay.classList.contains('on')&&window.__ekgBig)__ekgBig();pay.classList.add('on')}
 hv.addEventListener('timeupdate',function(){if(hv.currentTime>=PAY)land()});
-setTimeout(land,10000);
+setTimeout(land,9000);
 function tryPlay(v){var p=v.play();if(p&&p.catch)p.catch(function(){})}
 tryPlay(hv);
 d.addEventListener('pointerdown',function(){if(!paused)tryPlay(hv)},{once:true});
@@ -26,7 +26,7 @@ d.querySelectorAll('[data-count]').forEach(function(el){cio.observe(el)});
 window.addEventListener('scroll',function(){if(innerHeight+scrollY>=d.body.scrollHeight-40){rvs.forEach(function(el){el.classList.add('in')});land();if(window.__pulseAll)__pulseAll();if(window.__divAll)__divAll();if(window.__introDone)__introDone()}},{passive:true});
 
 var lenis=null;
-if(window.Lenis){lenis=new Lenis({lerp:.1,wheelMultiplier:1,smoothWheel:true});}
+if(window.Lenis){lenis=new Lenis({lerp:.12,wheelMultiplier:.55,touchMultiplier:1,smoothWheel:true});}
 if(window.gsap&&window.ScrollTrigger){
  gsap.registerPlugin(ScrollTrigger);
  if(lenis){lenis.on('scroll',ScrollTrigger.update);gsap.ticker.add(function(t){lenis.raf(t*1000)});gsap.ticker.lagSmoothing(0)}
@@ -155,3 +155,8 @@ f.addEventListener('submit',function(e){e.preventDefault();var ok=true;['name','
  var b='Name: '+f.elements['name'].value+'\nCompany: '+f.elements.company.value+'\nWork Email: '+f.elements.email.value+'\nPhone: '+f.elements.phone.value+'\n\n'+f.elements.msg.value;
  location.href='mailto:careers@truheartconsultinginc.com?subject='+encodeURIComponent('Enquiry From '+f.elements.company.value)+'&body='+encodeURIComponent(b)});
 })();
+
+(function(){var p=document.getElementById('wpath'),ol=document.querySelector('.wpts');if(!p||!ol)return;
+var li=[].slice.call(ol.children),n=li.length,dd='';li.forEach(function(l,i){var v=parseFloat(l.style.getPropertyValue('--v'));var x=n>1?i/(n-1)*1000:0,y=380-v*340;dd+=(i?'L':'M')+x.toFixed(1)+' '+y.toFixed(1)});p.setAttribute('d',dd);
+var sv=p.parentNode;
+var io=new IntersectionObserver(function(e){e.forEach(function(x){if(x.isIntersecting){sv.classList.add('on');ol.classList.add('on');io.disconnect()}})},{threshold:.35});io.observe(ol)})();

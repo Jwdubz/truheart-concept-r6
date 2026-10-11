@@ -487,3 +487,84 @@ body.menu-open .spine{opacity:0}
 .case-num strong{font-size:clamp(48px,4.8vw,92px)}
 .case-num span{line-height:1.35}
 @media (max-width:900px){.story-grid{grid-template-columns:1fr;margin-top:5vh}.story-pic{max-width:330px}}
+
+/* ===== r9: stage hero, wires, praise, hover, header ===== */
+@media (min-width:901px){
+ .hero .hero-film{left:auto;right:0;top:0;bottom:0;width:50vw;height:100%;inset:0 0 0 auto}
+ .hero .hero-film video{object-fit:cover;object-position:50% 30%}
+ .hero .hero-grid{right:0}
+ .hero .hero-type{max-width:62vw}
+}
+@media (max-width:900px){.hero .hero-film video{object-position:50% 25%}}
+/* header */
+#pause{display:inline-flex;align-items:center;gap:9px}
+.pz-i{width:10px;height:12px;border-left:3px solid currentColor;border-right:3px solid currentColor;box-sizing:border-box;display:inline-block}
+#pause[aria-pressed="true"] .pz-i{border:0;width:0;height:0;border-left:11px solid currentColor;border-top:6px solid transparent;border-bottom:6px solid transparent}
+@media (max-width:900px){.pz-t{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0)}}
+/* hover */
+.btn{transition:transform .25s ease,background-color .25s ease,color .25s ease,box-shadow .25s ease}
+.btn:hover{transform:translateY(-2px);box-shadow:0 10px 26px -12px rgba(0,0,0,.6)}
+a:not(.btn){transition:color .2s ease,opacity .2s ease}
+.foot a:hover,.menu-l a:hover,.talk a:not(.btn):hover{color:#cf2d20}
+.case{transition:transform .35s cubic-bezier(.2,.7,.2,1)}
+.case:hover{transform:translateY(-6px)}
+.money li,.pwall li{transition:transform .35s cubic-bezier(.2,.7,.2,1),background-color .3s ease,color .3s ease}
+.money li:hover,.pwall li:hover{transform:translateY(-5px)}
+.acc-b{cursor:pointer}.acc-b:hover .acc-t,.acc-b:hover h3{color:#cf2d20}
+/* wires */
+.wires{padding:16vh var(--pad) 12vh}
+.wires-head{display:grid;grid-template-columns:minmax(0,7fr) minmax(0,5fr);gap:clamp(24px,4vw,80px);align-items:end}
+.wires-head .eyebrow{grid-column:1/-1;margin:0}
+.wires-head .h2{margin:0}
+.wires-head .rq{margin:0}
+.wchart{position:relative;margin:9vh 0 0;height:clamp(300px,46vh,460px)}
+.wline{position:absolute;inset:0;width:100%;height:100%;overflow:visible}
+.wline path{fill:none;stroke:#cf2d20;stroke-width:3;vector-effect:non-scaling-stroke;stroke-linejoin:round}
+.wpts{list-style:none;margin:0;padding:0;position:absolute;inset:0}
+.wpts li{position:absolute;left:calc(var(--i)/7*100%);bottom:calc(5% + var(--v)*85%);transform:translate(-50%,0);text-align:center;opacity:0;transition:opacity .5s ease calc(var(--i)*.25s)}
+.wpts li:first-child{transform:translate(0,0);text-align:left}.wpts li:last-child{transform:translate(-100%,0);text-align:right}
+.wpts.on li{opacity:1}
+.wpts li::before{content:"";display:block;width:12px;height:12px;border-radius:50%;background:#cf2d20;margin:0 auto 10px;box-shadow:0 0 0 5px rgba(207,45,32,.25)}
+.wpts li:first-child::before{margin-left:0}.wpts li:last-child::before{margin-right:0}
+.wpts li{bottom:calc(5% + var(--v)*85% - 11px)}
+.wpts strong{display:block;font:700 clamp(15px,1.25vw,22px) UI;letter-spacing:-.02em;transform:translateY(calc(-100% - 34px))}
+.wpts span{display:block;font:500 13px UI;opacity:.75;transform:translateY(calc(-200% - 34px))}
+.wpts li:last-child strong{font-size:clamp(26px,2.6vw,46px);color:#cf2d20}
+.money{list-style:none;margin:9vh 0 0;padding:0;display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:14px}
+.money li{border:1.5px solid rgba(243,241,236,.22);border-radius:10px;padding:28px 24px;display:flex;flex-direction:column;gap:14px;min-height:220px;justify-content:space-between}
+.money li:hover{background:#f3f1ec;color:#0b0b0b}
+.money li.red{background:#cf2d20;border-color:#cf2d20;color:#f3f1ec}
+.money strong{font:700 clamp(32px,3vw,54px)/1 UI;letter-spacing:-.04em}
+.money span{font:500 16px/1.4 UI}
+/* praise */
+.praise{padding:16vh var(--pad) 14vh}
+.praise-head{display:grid;grid-template-columns:minmax(0,7fr) minmax(0,5fr);gap:clamp(24px,4vw,80px);align-items:end}
+.praise-head .eyebrow{grid-column:1/-1;margin:0}.praise-head .h2,.praise-head .body{margin:0}
+.pwall{list-style:none;margin:8vh 0 0;padding:0;columns:3 300px;column-gap:16px}
+.pwall li{break-inside:avoid;margin:0 0 16px;padding:28px 26px;border-radius:10px;background:#e8e5dd;color:#0b0b0b}
+.pwall li:hover{background:#0b0b0b;color:#f3f1ec}
+.pwall li.big{background:#0b0b0b;color:#f3f1ec}.pwall li.big:hover{background:#cf2d20}
+.pwall p{margin:0 0 18px;font:600 clamp(20px,1.6vw,26px)/1.25 UI;letter-spacing:-.02em}
+.pwall li.big p{font-size:clamp(26px,2.3vw,38px)}
+.pwall cite{font:600 15px UI;font-style:normal;display:flex;gap:10px}
+.pwall cite span{opacity:.6;font-weight:500}
+@media (max-width:900px){
+ .wires,.praise{padding:11vh 16px 9vh}
+ .wires-head,.praise-head{grid-template-columns:1fr}
+ .wchart{height:340px;margin-top:6vh}
+ .wpts li:not(:first-child):not(:last-child):not(:nth-child(4)) strong,.wpts li:not(:first-child):not(:last-child):not(:nth-child(4)) span{display:none}
+ .money{grid-template-columns:1fr 1fr}.money li{min-height:170px;padding:20px 18px}
+ .money li:last-child{grid-column:1/-1}
+}
+/* wires chart labels (r9b) */
+.wpts li{bottom:calc(5% + var(--v)*85%);width:0;height:0;transform:none!important;text-align:left}
+.wpts li::before{position:absolute;left:-6px;top:-6px;margin:0!important}
+.wpts strong,.wpts span{position:absolute;left:0;transform:translateX(-50%)!important;white-space:nowrap;text-align:center}
+.wpts strong{bottom:20px}.wpts span{bottom:44px;display:none}
+.wpts li:first-child strong,.wpts li:first-child span{transform:none!important}
+.wpts li:last-child strong,.wpts li:last-child span{transform:translateX(-100%)!important;left:6px}
+.wpts li:first-child span,.wpts li:last-child span{display:block;bottom:auto;top:16px}
+.wpts li:last-child strong{bottom:20px}
+@media (max-width:900px){.wpts li:nth-child(n+2):nth-child(-n+7) strong{display:none}.wpts li:nth-child(4) strong{display:block}}
+
+.wline{clip-path:inset(-10% 100% -10% 0);transition:clip-path 2.4s cubic-bezier(.65,0,.35,1)}.wline.on{clip-path:inset(-10% -2% -10% 0)}
