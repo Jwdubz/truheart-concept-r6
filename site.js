@@ -123,6 +123,8 @@ d.querySelectorAll('.acc-b').forEach(function(b){b.addEventListener('click',func
  tr.addEventListener('click',function(e){if(moved>6){e.preventDefault();e.stopPropagation()}},true);
  tr.addEventListener('dragstart',function(e){e.preventDefault()});
 })();
+// section links in the menu
+d.querySelectorAll('a[data-sec]').forEach(function(a){a.addEventListener('click',function(e){e.preventDefault();var t=d.querySelector(a.getAttribute('href'));setTimeout(function(){if(lenis){lenis.start();lenis.scrollTo(t,{duration:1.4,offset:-70})}else t.scrollIntoView({behavior:'smooth'})},60)})});
 // menu
 var mb=d.getElementById('mbtn'),menu=d.getElementById('menu'),mt=d.querySelector('.mb-t');
 function setMenu(o){if(o){menu.hidden=false;requestAnimationFrame(function(){menu.classList.add('on')});if(lenis)lenis.stop()}else{menu.classList.remove('on');setTimeout(function(){if(!menu.classList.contains('on'))menu.hidden=true},800);if(lenis&&!paused)lenis.start()}

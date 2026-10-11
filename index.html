@@ -8,7 +8,7 @@
 <meta name="description" content="Tru Heart Consulting builds high-performing sales teams and empowers leaders to take charge and deliver results. Tukwila, WA.">
 <meta name="theme-color" content="#0b0b0b">
 <link rel="preload" href="fonts/Display.woff2" as="font" type="font/woff2" crossorigin>
-<link rel="stylesheet" href="site.css?v=17">
+<link rel="stylesheet" href="site.css?v=19">
 <script>document.documentElement.classList.add('js')</script>
 </head>
 <body>
@@ -30,6 +30,12 @@
     <li><a href="#talk" data-close>Start The Conversation</a></li>
     <li><a href="tel:+12066576416">Call (206) 657-6416</a></li>
     <li><a href="mailto:careers@truheartconsultinginc.com">Email Us</a></li>
+  </ul>
+  <ul class="menu-s" aria-label="Sections">
+    <li><a href="#pulse" data-sec>The Pulse</a></li>
+    <li><a href="#results" data-sec>Results</a></li>
+    <li><a href="#services" data-sec>Services</a></li>
+    <li><a href="#talk" data-sec>Contact</a></li>
   </ul>
   <div class="menu-f"><span>565 Andover Park W, Ste 102</span><span>Tukwila, WA 98188</span></div>
 </div>
@@ -72,7 +78,7 @@
 </section>
 
 
-<section class="pulse" data-bg="#0b0b0b" data-fg="#f3f1ec" aria-labelledby="pulse-h">
+<section class="pulse" id="pulse" data-bg="#0b0b0b" data-fg="#f3f1ec" aria-labelledby="pulse-h">
   <div class="pulse-pin">
     <div class="pulse-head">
       <p class="eyebrow">The Pulse</p>
@@ -95,7 +101,7 @@
 
 
 <div class="ekg-div" aria-hidden="true"><svg viewBox="0 0 1600 120" preserveAspectRatio="none"><path d="M0 60H700L730 60 752 26 776 100 800 8 826 94 846 60H1600"/></svg></div>
-<section class="cases" data-bg="#f3f1ec" data-fg="#0b0b0b" aria-labelledby="cases-h">
+<section class="cases" id="results" data-bg="#f3f1ec" data-fg="#0b0b0b" aria-labelledby="cases-h">
   <div class="cases-pin">
     <div class="cases-head">
       <p class="eyebrow">For Brands</p>
@@ -118,15 +124,15 @@
 
 
 <div class="ekg-div" aria-hidden="true"><svg viewBox="0 0 1600 120" preserveAspectRatio="none"><path d="M0 60H700L730 60 752 26 776 100 800 8 826 94 846 60H1600"/></svg></div>
-<section class="services" data-bg="#cf2d20" data-fg="#f3f1ec">
+<section class="services" id="services" data-bg="#cf2d20" data-fg="#f3f1ec">
   <div class="svc-head">
     <p class="eyebrow">What You Get</p>
     <h2 class="h2">From Enhancing Sales Performance To Empowering Leadership<b>.</b></h2>
   </div>
   <ul class="acc">
-    <li class="acc-i open"><button class="acc-b" type="button" aria-expanded="true"><span class="num">01</span><span class="acc-t">Retail Sales</span><span class="acc-x" aria-hidden="true"></span></button><div class="acc-p"><svg class="acc-ecg" viewBox="0 0 1200 80" preserveAspectRatio="none" aria-hidden="true"><path d="M0 40H120L134 40 146 14 160 70 174 4 190 64 202 40H320H1200"/></svg><p>We partner with top brands to provide engaging retail sales solutions that drive customer acquisition and revenue growth. Our approach focuses on personalized customer experiences that leave a lasting impression and build brand loyalty.</p></div></li>
-    <li class="acc-i"><button class="acc-b" type="button" aria-expanded="false"><span class="num">02</span><span class="acc-t">Campaign Management</span><span class="acc-x" aria-hidden="true"></span></button><div class="acc-p"><svg class="acc-ecg" viewBox="0 0 1200 80" preserveAspectRatio="none" aria-hidden="true"><path d="M0 40H120L134 40 146 14 160 70 174 4 190 64 202 40H320L334 40 346 14 360 70 374 4 390 64 402 40H520H1200"/></svg><p>From strategy to execution, we manage every detail of sales campaigns to ensure maximum impact and measurable results, aligning client goals with market trends.</p></div></li>
-    <li class="acc-i"><button class="acc-b" type="button" aria-expanded="false"><span class="num">03</span><span class="acc-t">Leadership Coaching</span><span class="acc-x" aria-hidden="true"></span></button><div class="acc-p"><svg class="acc-ecg" viewBox="0 0 1200 80" preserveAspectRatio="none" aria-hidden="true"><path d="M0 40H120L134 40 146 14 160 70 174 4 190 64 202 40H320L334 40 346 14 360 70 374 4 390 64 402 40H520L534 40 546 14 560 70 574 4 590 64 602 40H720H1200"/></svg><p>Our coaching programs empower aspiring and established leaders to develop the skills needed to inspire teams and achieve organizational goals.</p></div></li>
+    <li class="acc-i open"><button class="acc-b" type="button" aria-expanded="true"><span class="num">01</span><span class="acc-t">Retail Sales</span><span class="acc-x" aria-hidden="true"></span></button><div class="acc-p"><div class="acc-in"><svg class="acc-ecg" viewBox="0 0 1200 80" preserveAspectRatio="none" aria-hidden="true"><path d="M0 40H120L134 40 146 14 160 70 174 4 190 64 202 40H320H1200"/></svg><p>We partner with top brands to provide engaging retail sales solutions that drive customer acquisition and revenue growth. Our approach focuses on personalized customer experiences that leave a lasting impression and build brand loyalty.</p></div></div></li>
+    <li class="acc-i"><button class="acc-b" type="button" aria-expanded="false"><span class="num">02</span><span class="acc-t">Campaign Management</span><span class="acc-x" aria-hidden="true"></span></button><div class="acc-p"><div class="acc-in"><svg class="acc-ecg" viewBox="0 0 1200 80" preserveAspectRatio="none" aria-hidden="true"><path d="M0 40H120L134 40 146 14 160 70 174 4 190 64 202 40H320L334 40 346 14 360 70 374 4 390 64 402 40H520H1200"/></svg><p>From strategy to execution, we manage every detail of sales campaigns to ensure maximum impact and measurable results, aligning client goals with market trends.</p></div></div></li>
+    <li class="acc-i"><button class="acc-b" type="button" aria-expanded="false"><span class="num">03</span><span class="acc-t">Leadership Coaching</span><span class="acc-x" aria-hidden="true"></span></button><div class="acc-p"><div class="acc-in"><svg class="acc-ecg" viewBox="0 0 1200 80" preserveAspectRatio="none" aria-hidden="true"><path d="M0 40H120L134 40 146 14 160 70 174 4 190 64 202 40H320L334 40 346 14 360 70 374 4 390 64 402 40H520L534 40 546 14 560 70 574 4 590 64 602 40H720H1200"/></svg><p>Our coaching programs empower aspiring and established leaders to develop the skills needed to inspire teams and achieve organizational goals.</p></div></div></li>
   </ul>
 </section>
 
@@ -169,6 +175,6 @@
 <script src="vendor/gsap.min.js"></script>
 <script src="vendor/ScrollTrigger.min.js"></script>
 <script src="vendor/lenis.min.js"></script>
-<script src="site.js?v=16"></script>
+<script src="site.js?v=18"></script>
 </body>
 </html>
