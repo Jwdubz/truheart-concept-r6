@@ -350,3 +350,41 @@ html{scrollbar-width:thin;scrollbar-color:#cf2d20 #0b0b0b}
  .creed-body.statement{margin-top:5vh}
  .pulse-head .h2,.cases-head .h2{font-size:clamp(38px,11vw,56px)}
 }
+
+/* ===== r5 ===== */
+.hero{height:auto}
+.hero-stage{position:relative;height:100vh;height:100svh}
+.hero .hero-film{clip-path:none}
+.hero .hero-grid{align-items:flex-end}
+.hero .hero-type{flex:1 1 auto}
+.hero .hl{flex-direction:row;flex-wrap:wrap;column-gap:.22em;font-size:clamp(76px,10.6vw,210px);line-height:.84}
+.hero .lede{flex:0 0 auto;max-width:26ch;text-align:left;font-size:clamp(17px,1.35vw,21px)}
+/* results strip: draggable everywhere */
+.cases-pin{min-height:0;padding:14vh 0 10vh}
+.cases-track{width:auto;overflow-x:auto;overscroll-behavior-x:contain;scrollbar-width:none;cursor:grab;user-select:none;-webkit-user-select:none;touch-action:pan-x pan-y;padding-bottom:6px}
+.cases-track::-webkit-scrollbar{display:none}
+.cases-track.dragging{cursor:grabbing}
+.cases-track *{user-select:none;-webkit-user-select:none;-webkit-user-drag:none}
+.case{height:clamp(340px,56vh,560px)}
+.case-film{width:calc(clamp(340px,56vh,560px)*1.776)}
+.case-film.case-tall{width:calc(clamp(340px,56vh,560px)*.8)}
+.case-num{width:clamp(280px,27vw,420px)}
+/* crop the memo line off the cheque (crop only, footage untouched) */
+.case-cheque video{height:108%;top:0;bottom:auto;object-position:50% 0}
+/* form fits its card */
+.talk-card,.talk-card *{box-sizing:border-box}
+.talk-card{min-width:0;width:100%;overflow:hidden}
+.talk-card .form{max-width:none;width:100%}
+.talk-card .form>*{min-width:0}
+.talk-card input,.talk-card textarea{width:100%;max-width:100%;min-width:0}
+.talk-card .form-foot{flex-direction:column;align-items:stretch}
+@media (max-width:900px){
+ .hero .hero-grid{flex-direction:column;align-items:flex-start}
+ .hero .hl{font-size:clamp(64px,19vw,104px)}
+ .case{height:380px}.case-film{width:84vw}.case-film.case-tall{width:300px}.case-num{width:72vw}
+ .case-cheque video{height:112%}
+ .talk{padding:10vh 16px 8vh;min-height:0}
+ .talk-card .form{grid-template-columns:1fr 1fr;gap:14px 12px}
+ .talk-card .form label.full,.talk-card .form .full{grid-column:1/-1}
+ .talk-card textarea{min-height:64px}
+}
