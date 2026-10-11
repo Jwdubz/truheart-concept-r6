@@ -388,3 +388,52 @@ html{scrollbar-width:thin;scrollbar-color:#cf2d20 #0b0b0b}
  .talk-card .form label.full,.talk-card .form .full{grid-column:1/-1}
  .talk-card textarea{min-height:64px}
 }
+
+/* ===== r6 ===== */
+.intro{display:none}
+.hero-stage{background:#000}
+.hero .hl .w{opacity:.16;transition:opacity .35s ease-out,color .6s,text-shadow .6s}
+.hero .hl .w.lit{opacity:1;animation:wl .9s ease-out}
+@keyframes wl{0%{color:#ff5a4a;text-shadow:0 0 34px rgba(207,45,32,.9)}100%{color:#fff}}
+.hero .hl .w.payoff{opacity:0}.hero .hl .w.payoff.on{opacity:1}
+.hero .eyebrow,.hero .lede,.hero .ticker{transition:opacity .8s ease .2s}
+.hero.intro-on .eyebrow,.hero.intro-on .lede,.hero.intro-on .ticker{opacity:0}
+.paused .hero .hl .w{opacity:1}
+/* spine */
+.spine{position:fixed;left:6px;top:0;width:18px;height:100vh;z-index:5;pointer-events:none;fill:none;opacity:0;transition:opacity .6s}
+.spine.on{opacity:1}
+.spine path{vector-effect:non-scaling-stroke;stroke-width:2;stroke-linejoin:round}
+.spine-b{stroke:rgba(128,128,128,.22)}.spine-p{stroke:#cf2d20}
+body.menu-open .spine{opacity:0}
+/* services: each service has its own trace; numbers outlined */
+.acc-b .num{font-family:Disp;font-weight:700;font-size:clamp(28px,2.6vw,44px);color:transparent;-webkit-text-stroke:1.5px #f3f1ec;opacity:1}
+.open .acc-b .num{color:#f3f1ec}
+.acc-p{position:relative}
+.acc-ecg{display:block;width:calc(100% - 80px);margin-left:80px;height:56px;overflow:hidden;fill:none}
+.acc-ecg path{stroke:#f3f1ec;stroke-width:2.5;vector-effect:non-scaling-stroke;stroke-linejoin:round;stroke-dasharray:1600;stroke-dashoffset:1600;transition:stroke-dashoffset 1.2s cubic-bezier(.6,0,.2,1) .25s}
+.open .acc-ecg path{stroke-dashoffset:0}
+.acc-p>svg{min-height:0}
+.acc-p{grid-template-rows:0fr}.acc-p>*{overflow:hidden}
+/* close */
+.talk-hl .bw,.talk-hl span:last-child{font-style:normal;opacity:.16;transition:opacity .3s}
+.talk-hl .lit{opacity:1;animation:wl2 .9s ease-out}
+@keyframes wl2{0%{color:#0b0b0b}100%{color:#f3f1ec}}
+.paused .talk-hl .bw,.paused .talk-hl span:last-child{opacity:1}
+.talk-card label{position:relative}
+.f-ecg{position:absolute;left:0;bottom:-2px;width:100%;height:26px;fill:none;pointer-events:none}
+.f-ecg path{stroke:#cf2d20;stroke-width:2.5;vector-effect:non-scaling-stroke;stroke-dasharray:500;stroke-dashoffset:500;transition:stroke-dashoffset .9s cubic-bezier(.6,0,.2,1)}
+.talk-card label:focus-within .f-ecg path{stroke-dashoffset:0}
+.talk-card label:focus-within input,.talk-card label:focus-within textarea{border-bottom-color:transparent}
+.talk-card .btn-red{position:relative}
+.talk-card .btn-red:hover{animation:thump 1.2s ease-in-out infinite}
+@keyframes thump{0%,40%,100%{transform:scale(1)}10%{transform:scale(1.025)}25%{transform:scale(1.012)}}
+@media (max-width:900px){.spine{left:1px;width:12px}.acc-ecg{width:calc(100% - 44px);margin-left:44px}}
+/* r6: Roman is the face of the hero: full-height native film panel, line opens it */
+@media (min-width:901px){
+ .hero .hero-film{left:auto;right:7vw;width:auto;height:calc(100% - 54px);aspect-ratio:720/898;top:0;bottom:auto}
+ .hero .hero-film video{object-fit:cover}
+ .hero .hero-grid{right:auto;width:calc(93vw - (100svh - 54px)*.8017 - 40px);flex-direction:column;align-items:flex-start;gap:28px}
+ .hero .hl{font-size:clamp(70px,8.4vw,170px)}
+}
+.talk-hl .bw{color:#f3f1ec}
+.talk-hl span.lit,.talk-hl i.bw.lit{opacity:1}
