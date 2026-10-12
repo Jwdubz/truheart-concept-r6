@@ -972,3 +972,13 @@ html,body{overflow-x:clip}
 /* contact copy breathing room */
 .talk .statement,.talk p{line-height:1.42}
 @media (max-width:900px){.hero .hero-film{order:0!important}.hero .hero-facts{order:1}.hero .hero-grid{order:2!important}.hero .ticker{order:3!important}}
+/* r15b: no menu; tighter pulse/praise rhythm; no left-edge progress line on phones */
+@media (min-width:901px){
+ .pulse{padding:0!important}
+ .pulse-pin{min-height:100vh;min-height:100svh;justify-content:center;padding:0 var(--pad)!important}
+ .pulse-chart{height:min(54vh,540px)!important;margin-top:clamp(36px,5vh,64px)!important}
+}
+.praise{padding-bottom:5vh!important}
+.cases-pin{padding-top:7vh!important}
+@media (max-width:900px){.spine{display:none!important}.pulse{padding-bottom:4vh!important}.praise{padding-bottom:4vh!important}.cases-pin{padding-top:5vh!important}}
+@media (min-width:901px){.pulse-pin{min-height:0!important;padding:11vh var(--pad) 9vh!important}}
