@@ -8,7 +8,7 @@
 <meta name="description" content="Tru Heart Consulting builds high-performing sales teams and empowers leaders to take charge and deliver results. Tukwila, WA.">
 <meta name="theme-color" content="#0b0b0b">
 <link rel="preload" href="fonts/Display.woff2" as="font" type="font/woff2" crossorigin>
-<link rel="stylesheet" href="site.css?v=45">
+<link rel="stylesheet" href="site.css?v=47">
 <script>document.documentElement.classList.add('js')</script>
 </head>
 <body>
@@ -20,7 +20,7 @@
   <div class="bar-ctas">
     <button class="btn btn-ghost pause" id="pause" type="button" aria-pressed="false" aria-label="Pause motion"><span class="pz-i" aria-hidden="true"></span><span class="pz-t">Pause</span></button>
     
-    <a class="btn btn-red cta-top" href="#talk">Start The Conversation</a>
+    <a class="btn btn-red cta-top" href="#talk"><span class="ct-l">Start The Conversation</span><span class="ct-s">Let&rsquo;s Talk</span></a>
     <button class="btn btn-ghost mbtn" id="mbtn" type="button" aria-expanded="false" aria-controls="menu"><span class="mb-ico" aria-hidden="true"><i></i><i></i></span><span class="mb-t">Menu</span></button>
   </div>
 </header>
@@ -39,6 +39,7 @@
     <li><a href="#services" data-sec>Services</a></li>
     <li><a href="#talk" data-sec>Contact</a></li>
   </ul>
+  <figure class="menu-fig" aria-hidden="true"><img src="media/roman-portrait.jpg" alt="" width="957" height="1203" loading="lazy"><figcaption><strong>Roman Roberson</strong><span>Founder And CEO, Tru Heart Consulting</span></figcaption></figure>
   <div class="menu-f"><span>565 Andover Park W, Ste 102</span><span>Tukwila, WA 98188</span></div>
 </div>
 
@@ -181,14 +182,15 @@
   <div class="talk-card">
     <svg class="talk-ekg" viewBox="0 0 600 60" preserveAspectRatio="none" aria-hidden="true"><path d="M0 30H250L264 30 274 10 286 52 298 2 312 48 322 30H600"/></svg>
   <form class="form" id="enq" novalidate>
+      <div class="form-ok" role="status" aria-live="polite" hidden><strong>Message ready.</strong><span>Your email app has opened with everything filled in. Hit send and Tru Heart will take it from there.</span><button type="button" class="btn btn-ghost form-again">Write Another</button></div>
       <label><span>Name</span><input name="name" autocomplete="name" required></label>
       <label><span>Company</span><input name="company" autocomplete="organization" required></label>
       <label><span>Work Email</span><input name="email" type="email" autocomplete="email" required></label>
       <label><span>Phone</span><input name="phone" type="tel" autocomplete="tel"></label>
-      <label class="full"><span>What Are You Launching?</span><textarea name="msg" rows="2"></textarea></label>
+      <label class="full"><span>How Can We Help?</span><textarea name="msg" rows="2"></textarea></label>
       <div class="full form-foot">
-        <button class="btn btn-red" type="submit">Start The Conversation</button>
-        <p class="fine">Opens Your Email App, Addressed To Tru Heart.</p>
+        <button class="btn btn-red" type="submit">Send Message</button>
+        <p class="fine">Sends through your email app to careers@truheartconsultinginc.com.</p>
       </div>
     </form>
   </div>
@@ -197,15 +199,19 @@
 
 <footer class="foot" data-bg="#0b0b0b" data-fg="#f3f1ec">
   <p class="foot-mark">Tru Heart<i>.</i></p>
-  <p>565 Andover Park W, Ste 102, Tukwila, WA 98188<br><a href="tel:+12066576416">(206) 657-6416</a> &nbsp; <a href="mailto:careers@truheartconsultinginc.com">Email Us</a></p>
-  <a class="btn btn-ghost totop" href="#top">Back To Top</a>
-  <p class="credit">&copy; 2026 Tru Heart Consulting, Inc. Design Concept By Jarrett Wroten, Not Tru Heart&rsquo;s Official Website.</p>
+  <div class="foot-cols">
+    <div><span class="fl">Visit</span><p>565 Andover Park W, Ste 102<br>Tukwila, WA 98188</p></div>
+    <div><span class="fl">Call</span><p><a href="tel:+12066576416">(206) 657-6416</a></p></div>
+    <div><span class="fl">Email</span><p><a href="mailto:careers@truheartconsultinginc.com">careers@truheartconsultinginc.com</a></p></div>
+    <div class="foot-top"><a class="btn btn-ghost totop" href="#top">Back To Top</a></div>
+  </div>
+  <p class="credit">&copy; 2026 Tru Heart Consulting, Inc. &middot; A design concept by Jarrett Wroten. Not Tru Heart&rsquo;s official website.</p>
 </footer>
 
 
 <script src="vendor/gsap.min.js"></script>
 <script src="vendor/ScrollTrigger.min.js"></script>
 <script src="vendor/lenis.min.js"></script>
-<script src="site.js?v=45"></script>
+<script src="site.js?v=47"></script>
 </body>
 </html>

@@ -1,6 +1,7 @@
+if('scrollRestoration' in history)history.scrollRestoration='manual';
 (function(){
 var d=document,root=d.documentElement,paused=false;
-var hv=d.getElementById('heroVid'),pay=d.querySelector('.payoff'),PAY=5.55;
+var hv=d.getElementById('heroVid'),pay=d.querySelector('.payoff'),PAY=5.75;
 function land(){if(!pay.classList.contains('on')&&window.__ekgBig)__ekgBig();pay.classList.add('on')}
 hv.addEventListener('timeupdate',function(){if(hv.currentTime>=PAY)land()});
 setTimeout(land,9000);
@@ -112,8 +113,8 @@ if(matchMedia('(hover:none)').matches){var cio2=new IntersectionObserver(functio
 // spine: the heartbeat carries down the page as you scroll, beating at each section
 (function(){var sv=d.getElementById('spine');if(!sv)return;var pb=sv.querySelector('.spine-b'),pp=sv.querySelector('.spine-p'),L=1;
  function addB(p){var o='',last=0;p.replace(/^M12 0/,'').split(/(?=V)/).forEach(function(seg){var m=seg.match(/^V(\d+)(.*)$/);if(!m){o+=seg;return}var v=+m[1];for(var y=last+46;y<v-30;y+=46)o+='V'+y+'L12 '+(y+3)+' 8 '+(y+6)+' 16 '+(y+10)+' 12 '+(y+13);o+='V'+v+m[2];var t=m[2].match(/(\d+)$/);last=t?+t[1]:v});return 'M12 0'+o}
- function build(){var pts='M12 0V1000';pb.setAttribute('d',pts);pp.setAttribute('d',pts);L=pp.getTotalLength();pp.style.strokeDasharray=L;upd()}
- function upd(){var y=scrollY,max=d.documentElement.scrollHeight-innerHeight,p=max>0?(y+innerHeight*.5)/(max+innerHeight):0;pp.style.strokeDashoffset=L*(1-Math.min(1,p));sv.classList.toggle('on',y>innerHeight*.6);var k=sv.querySelector('.spine-k');if(k)k.setAttribute('transform','translate(0 '+Math.max(0,Math.min(966,1000*Math.min(1,p)-34))+')')}
+ function build(){DH=0;var pts='M12 0V1000';pb.setAttribute('d',pts);pp.setAttribute('d',pts);L=pp.getTotalLength();pp.style.strokeDasharray=L;upd()}
+ var DH=0;function upd(){var y=scrollY;if(!DH)DH=d.documentElement.scrollHeight;var max=DH-innerHeight,p=max>0?(y+innerHeight*.5)/(max+innerHeight):0;pp.style.strokeDashoffset=L*(1-Math.min(1,p));sv.classList.toggle('on',y>innerHeight*.6);var k=sv.querySelector('.spine-k');if(k)k.setAttribute('transform','translate(0 '+Math.max(0,Math.min(966,1000*Math.min(1,p)-34))+')')}
  addEventListener('scroll',upd,{passive:true});addEventListener('resize',build);addEventListener('load',function(){setTimeout(build,300)});setTimeout(build,1500);build();
 })();
 // close: headline lights on beats; fields draw a heartbeat when focused
@@ -146,7 +147,7 @@ menu.querySelectorAll('a').forEach(function(a){a.addEventListener('click',functi
 
 // header: hide on scroll down, return on scroll up
 var bar=d.querySelector('.bar'),ly=0;
-function onS(y){var dn=y>ly;if(y>innerHeight*.6){bar.classList.add('solid')}else{bar.classList.remove('hide','solid')}ly=y}
+var secs=[].slice.call(d.querySelectorAll('[data-bg]'));function onS(y){var dn=y>ly;if(y>innerHeight*.6){bar.classList.add('solid');var bg='#0b0b0b',fg='#f3f1ec';for(var i=0;i<secs.length;i++){var r=secs[i].getBoundingClientRect();if(r.top<=40&&r.bottom>40){bg=secs[i].dataset.bg;fg=secs[i].dataset.fg;break}}if(bar.__bg!==bg){bar.__bg=bg;bar.style.setProperty('--hb',bg);bar.style.setProperty('--hf',fg);bar.classList.toggle('on-light',bg=='#f3f1ec')}}else{bar.classList.remove('hide','solid','on-light')}ly=y}
 if(lenis)lenis.on('scroll',function(e){onS(e.scroll)});else addEventListener('scroll',function(){onS(scrollY)},{passive:true});
 // back to top
 d.querySelectorAll('a[href="#top"]').forEach(function(a){a.addEventListener('click',function(e){e.preventDefault();if(lenis)lenis.scrollTo(0,{duration:1.8,easing:function(t){return t<.5?4*t*t*t:1-Math.pow(-2*t+2,3)/2}});else scrollTo({top:0,behavior:'smooth'})})});
@@ -164,7 +165,8 @@ pb.addEventListener('click',function(){paused=!paused;root.classList.toggle('pau
 var f=d.getElementById('enq');
 f.addEventListener('submit',function(e){e.preventDefault();var ok=true;['name','company','email'].forEach(function(n){var i=f.elements[n];var bad=!i.value.trim()||(n=='email'&&!/^\S+@\S+\.\S+$/.test(i.value));i.classList.toggle('bad',bad);if(bad&&ok){i.focus();ok=false}});if(!ok)return;
  var b='Name: '+f.elements['name'].value+'\nCompany: '+f.elements.company.value+'\nWork Email: '+f.elements.email.value+'\nPhone: '+f.elements.phone.value+'\n\n'+f.elements.msg.value;
- location.href='mailto:careers@truheartconsultinginc.com?subject='+encodeURIComponent('Enquiry From '+f.elements.company.value)+'&body='+encodeURIComponent(b)});
+ location.href='mailto:careers@truheartconsultinginc.com?subject='+encodeURIComponent('Enquiry From '+f.elements.company.value)+'&body='+encodeURIComponent(b);f.classList.add('sent');var ok2=f.querySelector('.form-ok');ok2.hidden=false;ok2.focus&&ok2.setAttribute('tabindex','-1');ok2.focus()});
+f.querySelector('.form-again').addEventListener('click',function(){f.reset();f.classList.remove('sent');f.querySelector('.form-ok').hidden=true});
 })();
 
 (function(){var p=document.getElementById('wpath'),ol=document.querySelector('.wpts');if(!p||!ol)return;
