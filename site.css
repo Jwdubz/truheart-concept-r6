@@ -906,3 +906,19 @@ body{transition:none}
  .money li span{text-align:left}
 }
 @media (max-width:900px){.case-cheque{align-self:flex-start}}
+/* story: copy spans full photo height (eyebrow = photo top, quote = photo bottom) */
+@media (min-width:901px){
+ .story-grid{align-items:stretch}
+ .story-copy{display:flex;flex-direction:column;justify-content:space-between;padding-bottom:var(--cap-h,40px)}
+ .story-copy>*{margin-top:0!important;margin-bottom:0!important}
+ .story-copy .eyebrow{line-height:1;margin-top:-.1em!important}
+ .story-copy .statement p{margin:0;font-size:clamp(26px,2.5vw,44px)}
+ .story-copy .rq p:last-of-type{margin-bottom:0}
+ .story-copy .rq cite{display:block}
+}
+/* r14b: May total sits in the open space RIGHT of the final peak, top-aligned to the tip */
+@media (min-width:901px){
+ .beats li.big,.beats li.big.on,.paused .beats li.big,.no-anim .beats li.big{left:84.5%;top:var(--y);transform:none;align-items:flex-start;text-align:left;max-width:15.5%}
+ .beats li.big strong{font-size:clamp(34px,3.2vw,60px)}
+ .beats li.big::before{display:none}
+}
