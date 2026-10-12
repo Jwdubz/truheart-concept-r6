@@ -922,3 +922,11 @@ body{transition:none}
  .beats li.big strong{font-size:clamp(34px,3.2vw,60px)}
  .beats li.big::before{display:none}
 }
+/* r14c: airier story copy (line spacing) */
+.story-copy .statement p{line-height:1.3}
+.story-copy .body{line-height:1.7}
+@media (min-width:901px){
+ .story-copy .statement p{line-height:1.38;font-size:clamp(26px,2.45vw,42px)}
+ .story-copy .body{line-height:1.78;font-size:clamp(18px,1.32vw,21px);max-width:48ch}
+ .story-copy .rq p{line-height:1.45}
+}
