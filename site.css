@@ -1037,7 +1037,8 @@ html,body{overflow-x:clip}
 /* 7: phone carousel: every card the same height, no empty band */
 @media (max-width:900px){
  .case,.case-cheque{height:380px!important;align-self:stretch!important}
- .case-cheque video{height:100%!important;object-fit:cover;object-position:50% 40%!important}
+ .case-cheque video{flex:1 1 auto!important;height:auto!important;min-height:0!important;aspect-ratio:auto!important;object-fit:cover!important;object-position:50% 40%!important}
+ .case-cheque .case-cap{flex:none!important}
  .cases-track{padding-bottom:0!important}
  .cases{padding-bottom:2vh!important}
  .services .svc-head{padding-top:calc(40px + 3vh)!important}
