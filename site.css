@@ -1016,3 +1016,49 @@ html,body{overflow-x:clip}
 .wpts li:last-child span.wk{transform:translateX(calc(-100% + 6px))!important;left:0!important}
 @media (max-width:900px){.wpts li span.wk{font-size:10px!important;padding:3px 3px}}
 @media (max-width:900px){.wpts li:nth-child(even) span.wk{top:36px!important}.wpts li:first-child span.wk{transform:translateX(-4px)!important}}
+/* ===== r16: SOTD R15 fixes ===== */
+/* 1: no dead cream/gradient band before services */
+.cases{padding-bottom:3vh!important}
+.cases-pin{min-height:0!important;padding-bottom:2vh!important}
+.services::before{top:-1px!important;height:40px!important;background:linear-gradient(#f3f1ec,#cf2d20)!important}
+.services .svc-head{padding-top:calc(40px + 4vh)!important}
+.services{padding-top:0!important}
+/* 2: hero film flush to the stage (%, not vw, so a scrollbar can never leave a strip) */
+@media (min-width:901px){
+ .hero{--fw:min(48%,calc((100svh - 54px)*.85))}
+ .hero-facts{width:calc(100% - var(--fw) - var(--pad) - 48px)!important}
+ .hero .hero-film{right:0!important;background:transparent!important;box-shadow:none!important;border:0!important}
+}
+.hero-stage{background:#050505!important}
+/* 3: stat cards: quotes start on one shared line */
+@media (min-width:901px){.money li span{align-self:start!important}}
+/* 6: no pointer-driven glow on touch */
+@media (hover:none),(pointer:coarse){.cursor,.cursor-ring,.cur,.cur-ring,[class*="cursor-"]{display:none!important}}
+/* 7: phone carousel: every card the same height, no empty band */
+@media (max-width:900px){
+ .case,.case-cheque{height:380px!important;align-self:stretch!important}
+ .case-cheque video{height:100%!important;object-fit:cover;object-position:50% 40%!important}
+ .cases-track{padding-bottom:0!important}
+ .cases{padding-bottom:2vh!important}
+ .services .svc-head{padding-top:calc(40px + 3vh)!important}
+}
+/* 8 + 4: header is a solid bar in the section colour, no see-through fade */
+.bar.solid{background:var(--hb,#0b0b0b)!important;padding-bottom:18px!important}
+@media (max-width:900px){.bar.solid{padding-bottom:12px!important}}
+/* 9: result cards read at rest: figure on top, pulse in the middle, quote at the foot */
+.case-num{justify-content:space-between!important}
+.case-num strong{margin-top:0!important}
+.case,.case *{opacity:1}
+/* 10: headline lights by brightness only, no red glow flash */
+@keyframes wl{0%{opacity:.16}100%{opacity:1}}
+.hero .hl .w{text-shadow:0 1px 3px rgba(0,0,0,.6)!important}
+/* 4: pinned chart: heading and top label clear the header */
+@media (min-width:901px){
+ .pulse-pin{padding-top:max(11vh,118px)!important}
+ .pulse-chart{height:min(48vh,480px)!important}
+}
+/* r16: week chips on the steep climbs keep 10px off the line */
+.wpts li:nth-child(4) span.wk,.wpts li:nth-child(7) span.wk{transform:translateX(10px)!important;top:12px!important}
+.wpts li:last-child span.wk{top:58px!important}
+@media (max-width:900px){.wpts li:nth-child(4) span.wk,.wpts li:nth-child(7) span.wk{top:12px!important}.wpts li:last-child span.wk{top:58px!important}}
+@media (max-width:900px){.wpts li:nth-child(4) span.wk{top:15px!important}.wpts li:last-child span.wk{top:118px!important}}
