@@ -50,10 +50,12 @@ if(window.gsap&&window.ScrollTrigger){
  // r17: the $261K EKG holds the screen. Drawing starts the moment the chart enters view, then the section pins
  // and scroll scrubs the line to the peak; the last 20% of the runway is a hold on the landed total before release.
  (function(){var drawP=0,tgt=0,raf=0;function step(){drawP+=(tgt-drawP)*.18;if(Math.abs(tgt-drawP)<.002)drawP=tgt;if(!paused)setP(drawP);raf=drawP!==tgt?requestAnimationFrame(step):0}function go(v){tgt=Math.max(0,Math.min(1,v));if(!raf)raf=requestAnimationFrame(step)}
- function build(run){var bar=d.querySelector('.bar'),hold=0;function killFling(y){if(hold)return;hold=1;root.style.overflow='hidden';scrollTo(0,y);setTimeout(function(){root.style.overflow='';scrollTo(0,y);setTimeout(function(){hold=0},400)},140)}
+ function build(run){var bar=d.querySelector('.bar'),hold=0,landed=0;function killFling(y){if(hold)return;hold=1;root.style.overflow='hidden';scrollTo(0,y);setTimeout(function(){root.style.overflow='';scrollTo(0,y);setTimeout(function(){hold=0},400)},140)}
   var pinST=ScrollTrigger.create({trigger:'.pulse-pin',start:function(){return 'top '+(bar?bar.offsetHeight:0)+'px'},end:'+='+run+'%',pin:true,pinSpacing:true,anticipatePin:1,
    // a fast fling would carry straight through the hold; catch it at the pin so the draw always plays
-   onEnter:function(s){if(Math.abs(s.getVelocity())>900)killFling(s.start+2)}});
+   onEnter:function(s){landed=0;if(Math.abs(s.getVelocity())>900)killFling(s.start+2)},onEnterBack:function(){landed=1},onLeaveBack:function(){landed=0},
+   // and once more at the landing: a second fling stops on the finished total instead of flying through it
+   onUpdate:function(s){var ly=s.start+(s.end-s.start)*.84;if(!landed&&scrollY>ly&&Math.abs(s.getVelocity())>900){landed=1;killFling(ly)}else if(scrollY>ly)landed=1}});
   // progress spans: chart enters view (top 92%) -> 80% through the pin. Pre-pin covers about a quarter of the line.
   var drawST=ScrollTrigger.create({trigger:'.pulse-pin',start:'top 92%',endTrigger:'.pulse-pin',end:function(){return pinST.start+(pinST.end-pinST.start)*.8},onUpdate:function(s){go(.08+s.progress*.92)},onLeaveBack:function(){go(0)},onLeave:function(){go(1)}});
   return function(){pinST.kill();drawST.kill()}}
