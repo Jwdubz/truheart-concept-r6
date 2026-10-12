@@ -930,3 +930,8 @@ body{transition:none}
  .story-copy .body{line-height:1.78;font-size:clamp(18px,1.32vw,21px);max-width:48ch}
  .story-copy .rq p{line-height:1.45}
 }
+/* R14d rule: no grain, scrims, masks or dark overlays (tone lift ok) on any video/photo; no eyebrow labels */
+.eyebrow{display:none!important}
+.hero .hero-film,.hero .hero-film video,.hero-film,.hero-film video,video,img{-webkit-mask-image:none!important;mask-image:none!important}
+.hero .hero-film::before,.hero .hero-film::after{content:none!important;display:none!important;animation:none!important}
+.hero .hl,.hero .lede{text-shadow:0 1px 3px rgba(0,0,0,.6)!important}
