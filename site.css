@@ -590,3 +590,16 @@ a:not(.btn){transition:color .2s ease,opacity .2s ease}
 @keyframes sk{0%,100%{opacity:0}6%{opacity:1}30%{opacity:0}}
 .paused .spine-k{animation:none;opacity:1}
 @media (max-width:900px){.hero .hero-film video{object-position:68% 0}}
+/* r11: big total sits beside its peak, never above the chart top */
+@media (min-width:901px){
+ .pulse-chart{margin-top:clamp(56px,9vh,110px)}
+ .beats li.big{transform:translate(calc(-100% - 26px),-6%)}
+ .beats li.big.on,.paused .beats li.big,.no-anim .beats li.big{transform:translate(calc(-100% - 26px),0)}
+ .beats li.big::before{right:-32px;bottom:auto;top:6px}
+}
+@media (min-width:901px){
+ .beats li.big strong{font-size:clamp(40px,4.2vw,80px)}
+ .beats li.big{transform:translate(calc(-100% - 26px),-38%)}
+ .beats li.big.on,.paused .beats li.big,.no-anim .beats li.big{transform:translate(calc(-100% - 26px),-32%)}
+ .beats li.big::before{top:calc(32% + 4px)}
+}
