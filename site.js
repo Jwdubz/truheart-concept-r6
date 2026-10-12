@@ -67,7 +67,7 @@ if(matchMedia('(hover:none)').matches){var cio2=new IntersectionObserver(functio
 (function(){
  var cv=d.getElementById('ekg');if(!cv)return;var cx=cv.getContext('2d'),W,H,Y,dpr=Math.min(2,devicePixelRatio||1),px=-1e4,pv=0,lastX=null,big=0,on=true;
  var hf=d.querySelector('.hero .hero-film'),words=[].slice.call(d.querySelectorAll('.hero .hl .w')),hero=d.querySelector('.hero');
- var T0=performance.now(),DRAW=1.25,OPEN=.95,BEAT0=DRAW+OPEN,per=2.6,opened=false,lit=0,acc=0,lastB=0,bpmEl=d.getElementById('bpm');
+ var T0=performance.now(),DRAW=1.25,OPEN=.95,BEAT0=DRAW+OPEN,per=2.5,opened=false,lit=0,acc=0,lastB=0,bpmEl=d.getElementById('bpm');
  hero.classList.add('intro-on');
  function size(){var r=cv.getBoundingClientRect();W=r.width;H=r.height;cv.width=W*dpr;cv.height=H*dpr;cx.setTransform(dpr,0,0,dpr,0,0);var hr=d.querySelector('.hero .hero-type').getBoundingClientRect();Y=Math.max(H*.28,hr.top-r.top-46)}
  size();addEventListener('resize',size);
@@ -90,10 +90,10 @@ if(matchMedia('(hover:none)').matches){var cio2=new IntersectionObserver(functio
   if(t<DRAW&&!opened){var k=t/DRAW;drawTo=W*ease(k);head=W*.56;yl=H/2;introAmp=1.6;clip(0)}
   else if(t<BEAT0&&!opened){var k2=ease((t-DRAW)/OPEN);clip(k2);yl=H/2+(Y-H/2)*k2;head=W*.56;introAmp=1.6*(1-k2)}
   else{if(!opened){finish();T0=now-BEAT0*1000;t=BEAT0}
-   yl=Y;var dt=Math.min(.05,(now-(window.__lt||now))/1000),rate=1+Math.min(1.2,pv*1.1);acc+=dt*rate;var bt=acc,ph=(bt%per)/per;var bpm=Math.round(60*rate*per/2.6*0+46*rate);if(bpmEl&&bpm!==lastB){bpmEl.textContent=bpm;lastB=bpm}S=Math.max(190,W/6);head=paused?W*.62:ph*S;
+   yl=Y;var dt=Math.min(.05,(now-(window.__lt||now))/1000),rate=1+Math.min(.35,pv*.35);acc+=dt*rate;var bt=acc,ph=(bt%per)/per;var bpm=Math.round(24*rate);if(bpmEl&&bpm!==lastB){bpmEl.textContent=bpm;lastB=bpm}head=paused?W*.62:ph*(W+400)-200;
    var n=Math.floor(bt/per);if(!paused&&lit<2&&n>=lit&&ph>.35){words[lit]&&words[lit].classList.add('lit');lit++}}
   pv*=.94;big*=.97;cx.clearRect(0,0,W,H);cx.lineWidth=3;cx.lineJoin='round';cx.lineCap='round';cx.beginPath();
-  for(var x=0;x<=drawTo;x+=2){var a=introAmp?introAmp:(1+big*1.4);var u=introAmp?(x-head)/bw:((((x-head)%S)+S*1.5)%S-S/2)/Math.min(bw,S*.36);var y=qrs(u)*amp*(introAmp?a:a*.62)+qrs((x-px)/(bw*.7))*amp*1.3*pv;x?cx.lineTo(x,yl+y):cx.moveTo(x,yl+y)}
+  for(var x=0;x<=drawTo;x+=2){var a=introAmp?introAmp:(1+big*1.4);var y=qrs((x-head)/bw)*amp*a+qrs((x-px)/(bw*.7))*amp*1.3*pv;x?cx.lineTo(x,yl+y):cx.moveTo(x,yl+y)}
   if(introAmp||paused){cx.strokeStyle='#cf2d20'}else{cx.strokeStyle='#cf2d20'}
   cx.stroke();window.__lt=now;
  }
@@ -103,7 +103,7 @@ if(matchMedia('(hover:none)').matches){var cio2=new IntersectionObserver(functio
 (function(){var sv=d.getElementById('spine');if(!sv)return;var pb=sv.querySelector('.spine-b'),pp=sv.querySelector('.spine-p'),L=1;
  function addB(p){var o='',last=0;p.replace(/^M12 0/,'').split(/(?=V)/).forEach(function(seg){var m=seg.match(/^V(\d+)(.*)$/);if(!m){o+=seg;return}var v=+m[1];for(var y=last+46;y<v-30;y+=46)o+='V'+y+'L12 '+(y+3)+' 8 '+(y+6)+' 16 '+(y+10)+' 12 '+(y+13);o+='V'+v+m[2];var t=m[2].match(/(\d+)$/);last=t?+t[1]:v});return 'M12 0'+o}
  function build(){var Hd=d.documentElement.scrollHeight,pts='M12 0';d.querySelectorAll('main>section,main>.ekg-div').forEach(function(s){if(!s.matches('section'))return;var f=Math.round(s.offsetTop/Hd*1000);if(f<20)return;pts+='V'+(f-24)+'L12 '+(f-18)+' 4 '+(f-12)+' 22 '+(f-4)+' 2 '+(f+6)+' 16 '+(f+12)+' 12 '+(f+18)});pts=pts.replace(/V(\d+)/g,function(m,v){return m});pts=addB(pts);var lt=+(pts.match(/(\d+)$/)||[0,0])[1];for(var y=lt+46;y<970;y+=46)pts+='V'+y+'L12 '+(y+3)+' 8 '+(y+6)+' 16 '+(y+10)+' 12 '+(y+13);pts+='V1000';pb.setAttribute('d',pts);pp.setAttribute('d',pts);L=pp.getTotalLength();pp.style.strokeDasharray=L;upd()}
- function upd(){var y=scrollY,max=d.documentElement.scrollHeight-innerHeight,p=max>0?(y+innerHeight*.5)/(max+innerHeight):0;pp.style.strokeDashoffset=L*(1-Math.min(1,p));sv.classList.toggle('on',y>innerHeight*.6)}
+ function upd(){var y=scrollY,max=d.documentElement.scrollHeight-innerHeight,p=max>0?(y+innerHeight*.5)/(max+innerHeight):0;pp.style.strokeDashoffset=L*(1-Math.min(1,p));sv.classList.toggle('on',y>innerHeight*.6);var k=sv.querySelector('.spine-k');if(k)k.setAttribute('transform','translate(0 '+Math.max(0,Math.min(966,1000*Math.min(1,p)-34))+')')}
  addEventListener('scroll',upd,{passive:true});addEventListener('resize',build);addEventListener('load',function(){setTimeout(build,300)});setTimeout(build,1500);build();
 })();
 // close: headline lights on beats; fields draw a heartbeat when focused

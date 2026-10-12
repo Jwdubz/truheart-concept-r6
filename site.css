@@ -590,3 +590,9 @@ a:not(.btn){transition:color .2s ease,opacity .2s ease}
  .beats li.big.on,.paused .beats li.big,.no-anim .beats li.big{transform:translate(calc(-100% - 14px),-120%)}
  .beats li.big::before{left:auto;right:-20px}
 }
+
+.spine-k{fill:none;stroke:#cf2d20;stroke-width:2;vector-effect:non-scaling-stroke;stroke-linejoin:round;opacity:0;transform-box:fill-box;transform-origin:50% 50%}
+.spine.on .spine-k{animation:sk 2.5s ease-out infinite}
+@keyframes sk{0%,100%{opacity:0}6%{opacity:1}30%{opacity:0}}
+.bpm i{animation-duration:2.5s}
+.paused .spine-k{animation:none;opacity:1}
