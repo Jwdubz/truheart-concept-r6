@@ -982,3 +982,16 @@ html,body{overflow-x:clip}
 .cases-pin{padding-top:7vh!important}
 @media (max-width:900px){.spine{display:none!important}.pulse{padding-bottom:4vh!important}.praise{padding-bottom:4vh!important}.cases-pin{padding-top:5vh!important}}
 @media (min-width:901px){.pulse-pin{min-height:0!important;padding:11vh var(--pad) 9vh!important}}
+/* r15d: May total stacked ON TOP of the big peak (Jarrett) */
+@media (min-width:901px){
+ .pulse-chart{margin-top:clamp(150px,19vh,200px)!important}
+ .pulse-chart .beats li.big,.pulse-chart .beats li.big.on,.paused .pulse-chart .beats li.big,.no-anim .pulse-chart .beats li.big{transform:translate(-50%,calc(-100% - 26px))!important;align-items:center;text-align:center}
+ .pulse-chart .beats li.big::before{left:50%!important;right:auto!important;bottom:-22px!important;margin-left:-6px}
+}
+@media (max-width:900px){
+ .pulse-chart{position:relative;padding-top:96px}
+ .pulse-chart .beats li.big{position:absolute!important;top:0;left:81.25%!important;transform:translateX(-50%)!important;align-items:center;text-align:center;padding-left:0!important;white-space:nowrap}
+ .pulse-chart .beats li.big::before{display:none}
+ .pulse-chart .beats li.big strong{font-size:clamp(40px,11vw,60px)}
+}
+@media (max-width:900px){.pulse-chart .beats li.big{left:min(81.25%,calc(100% - 100px))!important}}
