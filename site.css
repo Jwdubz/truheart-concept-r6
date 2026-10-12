@@ -935,3 +935,40 @@ body{transition:none}
 .hero .hero-film,.hero .hero-film video,.hero-film,.hero-film video,video,img{-webkit-mask-image:none!important;mask-image:none!important}
 .hero .hero-film::before,.hero .hero-film::after{content:none!important;display:none!important;animation:none!important}
 .hero .hl,.hero .lede{text-shadow:0 1px 3px rgba(0,0,0,.6)!important}
+
+/* ===== r15: SOTD R14 fixes ===== */
+html,body{overflow-x:clip}
+.hero,.hero-stage{max-width:100%;overflow:hidden}
+@media (min-width:901px){
+ /* film = full-height right column, flush to the edge, native 612:720, never past 100% width */
+ .hero{--fw:min(48vw,calc((100svh - 54px)*.85))}
+ .hero .hero-film{position:absolute!important;top:0!important;right:0!important;left:auto!important;bottom:54px!important;height:auto!important;width:var(--fw)!important;max-width:100%!important;aspect-ratio:auto!important;transform:none!important;clip-path:none!important;-webkit-mask-image:none!important;mask-image:none!important;border-radius:0!important}
+ .hero .hero-film video{position:absolute;inset:0;width:100%!important;height:100%!important;object-fit:cover;object-position:50% 18%!important}
+ .hero .hero-film::after{display:none!important}
+ /* headline + sentence read as one block in the left column */
+ .hero .hero-grid{position:absolute!important;left:0!important;right:auto!important;bottom:54px!important;width:calc(100% - var(--fw))!important;max-width:none!important;display:flex!important;flex-direction:column!important;align-items:flex-start!important;justify-content:flex-end!important;gap:22px!important;padding:0 clamp(28px,3vw,56px) clamp(34px,5vh,60px) var(--pad)!important;box-sizing:border-box}
+ .hero .hero-type{max-width:100%!important;flex:none!important}
+ .hero .hl{font-size:clamp(64px,min(7.6vw,13svh),150px)!important;line-height:.86!important}
+ .hero .lede{max-width:34ch!important;margin:0!important;padding:0!important;font-size:clamp(17px,1.35vw,21px)!important;text-align:left!important}
+}
+@media (max-width:900px){
+ /* phone/tablet: film in flow at its native 612:720 shape, nothing cropped, type below it */
+ .hero-stage{height:auto!important;min-height:0!important;display:flex;flex-direction:column;padding-top:56px;box-sizing:border-box}
+ .hero .hero-film{position:relative!important;inset:auto!important;width:100%!important;max-width:612px!important;margin:0 auto!important;height:auto!important;aspect-ratio:612/720!important;clip-path:none!important;-webkit-mask-image:none!important;mask-image:none!important;transform:none!important;border-radius:0!important}
+ .hero .hero-film video{position:absolute;inset:0;width:100%!important;height:100%!important;object-fit:cover;object-position:50% 50%!important}
+ .hero .hero-film::after{display:none!important}
+ .hero .hero-grid{position:relative!important;inset:auto!important;width:auto!important;padding:26px 16px 96px!important;gap:16px!important}
+ .hero .ticker{position:relative!important}
+ .ekg{z-index:1}
+}
+@media (min-width:640px) and (max-width:900px){.hero .hero-film{max-width:520px!important}}
+/* Rookie Year and other number cards: content grouped, signature pulse fills the top instead of empty black */
+.case-num{justify-content:flex-end!important;gap:0}
+.case-num::before{content:"";position:absolute;left:26px;right:26px;top:30%;height:64px;background:no-repeat center/100% 100% url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 300 60' preserveAspectRatio='none'%3E%3Cpath d='M0 30H110L122 30 130 12 140 50 150 4 162 46 170 30H300' fill='none' stroke='%23cf2d20' stroke-width='3' stroke-linejoin='round' vector-effect='non-scaling-stroke'/%3E%3C/svg%3E")}
+.case-red::before{filter:brightness(0) invert(1);opacity:.85}
+.case-num strong{margin-top:auto}
+/* menu overlay always covers the full screen */
+.menu{inset:0!important;height:100vh;height:100dvh!important;min-height:100dvh}
+/* contact copy breathing room */
+.talk .statement,.talk p{line-height:1.42}
+@media (max-width:900px){.hero .hero-film{order:0!important}.hero .hero-facts{order:1}.hero .hero-grid{order:2!important}.hero .ticker{order:3!important}}
