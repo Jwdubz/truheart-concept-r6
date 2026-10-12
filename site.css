@@ -995,3 +995,17 @@ html,body{overflow-x:clip}
  .pulse-chart .beats li.big strong{font-size:clamp(40px,11vw,60px)}
 }
 @media (max-width:900px){.pulse-chart .beats li.big{left:min(81.25%,calc(100% - 100px))!important}}
+/* r15e: story column = one cohesive block, balanced against the portrait */
+.story-grid{align-items:center!important}
+.story-copy{display:flex!important;flex-direction:column!important;justify-content:center!important;gap:clamp(1.5rem,2.2vw,2.25rem)!important;padding-bottom:0!important}
+.story-copy>*{margin-top:0!important;margin-bottom:0!important}
+.story-copy .statement p{margin:0!important}
+@media (min-width:901px){.pulse-chart{margin-top:104px!important}}
+/* r15f: week labels sit above their value, clear of the line */
+.wpts strong{line-height:1.05}
+.wpts strong span{position:static!important;transform:none!important;display:none;font:500 13px/1.2 UI!important;letter-spacing:0;color:#f3f1ec;opacity:.75;margin:0 0 5px}
+.wpts li:first-child strong span,.wpts li:last-child strong span{display:block!important}
+.wpts li:last-child strong{text-align:right}
+.wpts li strong{bottom:22px!important}
+.wpts li strong,.wpts li:nth-child(even) strong{top:auto!important;bottom:22px!important}
+.wpts li:last-child strong,.wpts li:last-child strong span{text-align:right!important}

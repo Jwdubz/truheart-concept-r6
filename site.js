@@ -45,7 +45,7 @@ if(window.gsap&&window.ScrollTrigger){
  // signature: the pulse draws with scroll, each beat lands a rep result
  var pl=d.querySelector('.pl'),bl=[].slice.call(d.querySelectorAll('.beats li')),L=pl.getTotalLength(),marks=[270,612,944,1300].map(function(X){var lo=0,hi=L;for(var k=0;k<24;k++){var mid=(lo+hi)/2;pl.getPointAtLength(mid).x<X?lo=mid:hi=mid}return lo/L});
  pl.style.strokeDasharray=L;pl.style.strokeDashoffset=L;
- function setP(p){pl.style.strokeDashoffset=L*(1-p);bl.forEach(function(li,i){li.classList.toggle('on',p>=marks[i])})}
+ var MX=[270,612,944,1300];pl.style.strokeDasharray='none';pl.style.strokeDashoffset='0';function setP(p){var x=340+(1600-340)*Math.max(0,Math.min(1,p));pl.style.clipPath='inset(-60% '+Math.max(0,100-x/16).toFixed(2)+'% -60% 0)';bl.forEach(function(li,i){li.classList.toggle('on',x>=MX[i]+8)})}setP(0);
  window.__pulseAll=function(){setP(1)};
  mm.add('(min-width:901px)',function(){ScrollTrigger.create({trigger:'.pulse',start:'top top',end:'+=40%',pin:'.pulse-pin',scrub:.6,onUpdate:function(s){if(!paused)setP(s.progress)},onLeave:function(){setP(1)}})});
  mm.add('(max-width:900px)',function(){ScrollTrigger.create({trigger:'.pulse-chart',start:'top 85%',end:'bottom 45%',scrub:.4,onUpdate:function(s){if(!paused)setP(s.progress)},onLeave:function(){setP(1)}})});
