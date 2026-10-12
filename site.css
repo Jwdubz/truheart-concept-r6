@@ -1009,3 +1009,10 @@ html,body{overflow-x:clip}
 .wpts li strong{bottom:22px!important}
 .wpts li strong,.wpts li:nth-child(even) strong{top:auto!important;bottom:22px!important}
 .wpts li:last-child strong,.wpts li:last-child strong span{text-align:right!important}
+/* r15g: week label centered UNDER each dot on a dark chip; amounts stay above */
+.wpts{z-index:2}
+.wpts li span.wk{display:block!important;position:absolute!important;top:16px!important;bottom:auto!important;left:0!important;transform:translateX(-50%)!important;white-space:nowrap;font:600 12px/1 UI!important;letter-spacing:0;color:#f3f1ec;opacity:1!important;background:#0b0b0b;padding:4px 6px;border-radius:4px;text-align:center!important}
+.wpts li:first-child span.wk{transform:translateX(-6px)!important}
+.wpts li:last-child span.wk{transform:translateX(calc(-100% + 6px))!important;left:0!important}
+@media (max-width:900px){.wpts li span.wk{font-size:10px!important;padding:3px 3px}}
+@media (max-width:900px){.wpts li:nth-child(even) span.wk{top:36px!important}.wpts li:first-child span.wk{transform:translateX(-4px)!important}}
