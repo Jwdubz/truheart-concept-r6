@@ -596,3 +596,4 @@ a:not(.btn){transition:color .2s ease,opacity .2s ease}
 @keyframes sk{0%,100%{opacity:0}6%{opacity:1}30%{opacity:0}}
 .bpm i{animation-duration:2.5s}
 .paused .spine-k{animation:none;opacity:1}
+@media (max-width:900px){.hero .hero-film video{object-position:68% 0}}
