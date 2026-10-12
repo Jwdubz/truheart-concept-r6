@@ -654,3 +654,8 @@ section[id]{scroll-margin-top:0}
 @media (max-width:600px){.pwall li.big{grid-column:auto}}
 .bar.solid{background:linear-gradient(to bottom,var(--barbg,#0b0b0b) 0,var(--barbg,#0b0b0b) 55%,transparent 100%)!important}
 .pwall{grid-auto-flow:row dense}
+@media (max-width:900px){.hero .hero-grid{padding-bottom:84px!important}}
+@media (max-width:900px){.hero .hero-grid{padding-bottom:150px!important}}
+@media (max-width:380px){.bar{padding:12px 10px!important}.bar #pause{margin-right:10px}.bar-ctas{gap:10px}}
+@media (max-width:900px){.beats{grid-template-columns:minmax(0,1fr) minmax(0,1fr)}.beats li{min-width:0}.money li{min-width:0}}
+@media (max-width:400px){.beats strong{font-size:30px}.beats li.big strong{font-size:38px}.money strong{font-size:30px}}
