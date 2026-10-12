@@ -7,9 +7,10 @@
 <title>Roman Roberson | Tru Heart Consulting</title>
 <meta name="description" content="Tru Heart Consulting builds high-performing sales teams and empowers leaders to take charge and deliver results. Tukwila, WA.">
 <meta name="theme-color" content="#0b0b0b">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 16 16%22%3E%3Ccircle cx=%228%22 cy=%228%22 r=%226%22 fill=%22%23cf2d20%22/%3E%3C/svg%3E">
 <link rel="preload" href="fonts/Display.woff2" as="font" type="font/woff2" crossorigin>
-<link rel="stylesheet" href="site.css?v=49">
-<script>document.documentElement.classList.add('js')</script>
+<link rel="stylesheet" href="site.css?v=50">
+<script>document.documentElement.classList.add('js');if('scrollRestoration' in history)history.scrollRestoration='manual';if(!location.hash)window.scrollTo(0,0)</script>
 </head>
 <body>
 <div class="bg" aria-hidden="true"></div>
@@ -30,6 +31,7 @@
     <li><a href="#talk" data-close>Start The Conversation</a></li>
     <li><a href="tel:+12066576416">Call (206) 657-6416</a></li>
     <li><a href="mailto:careers@truheartconsultinginc.com">Email Us</a></li>
+    <li class="menu-pz"><button type="button" class="menu-pause" aria-pressed="false">Pause Motion</button></li>
   </ul>
   <ul class="menu-s" aria-label="Sections">
     <li><a href="#pulse" data-sec>The Pulse</a></li>
@@ -49,6 +51,14 @@
     <figure class="hero-film">
       <video id="heroVid" src="media/stage.mp4" poster="media/stage-poster.jpg?v=2" muted loop playsinline autoplay preload="auto" width="612" height="720"></video>
     </figure>
+    <div class="hero-facts" aria-label="Tru Heart at a glance">
+      <p class="hf-k">Tru Heart Consulting &middot; Tukwila, Washington</p>
+      <ul class="hf-l">
+        <li><strong>$261,575</strong><span>Team revenue, May 2025</span></li>
+        <li><strong>36</strong><span>Reps on Roman&rsquo;s team</span></li>
+        <li><strong>National</strong><span>Panel speaker, 2025</span></li>
+      </ul>
+    </div>
     <canvas class="ekg" id="ekg" aria-hidden="true"></canvas>
   <div class="hero-grid">
       <div class="hero-type">
@@ -162,9 +172,9 @@
     <h2 class="h2">From Enhancing Sales Performance To Empowering Leadership<b>.</b></h2>
   </div>
   <ul class="acc">
-    <li class="acc-i open"><button class="acc-b" type="button" aria-expanded="true"><span class="num">01</span><span class="acc-t">Retail Sales</span><span class="acc-x" aria-hidden="true"></span></button><div class="acc-p"><div class="acc-in"><svg class="acc-ecg" viewBox="0 0 1200 80" preserveAspectRatio="none" aria-hidden="true"><path d="M0 40H120L134 40 146 14 160 70 174 4 190 64 202 40H320H1200"/></svg><p>We partner with top brands to provide engaging retail sales solutions that drive customer acquisition and revenue growth. Our approach focuses on personalized customer experiences that leave a lasting impression and build brand loyalty.</p></div></div></li>
-    <li class="acc-i"><button class="acc-b" type="button" aria-expanded="false"><span class="num">02</span><span class="acc-t">Campaign Management</span><span class="acc-x" aria-hidden="true"></span></button><div class="acc-p"><div class="acc-in"><svg class="acc-ecg" viewBox="0 0 1200 80" preserveAspectRatio="none" aria-hidden="true"><path d="M0 40H120L134 40 146 14 160 70 174 4 190 64 202 40H320L334 40 346 14 360 70 374 4 390 64 402 40H520H1200"/></svg><p>From strategy to execution, we manage every detail of sales campaigns to ensure maximum impact and measurable results, aligning client goals with market trends.</p></div></div></li>
-    <li class="acc-i"><button class="acc-b" type="button" aria-expanded="false"><span class="num">03</span><span class="acc-t">Leadership Coaching</span><span class="acc-x" aria-hidden="true"></span></button><div class="acc-p"><div class="acc-in"><svg class="acc-ecg" viewBox="0 0 1200 80" preserveAspectRatio="none" aria-hidden="true"><path d="M0 40H120L134 40 146 14 160 70 174 4 190 64 202 40H320L334 40 346 14 360 70 374 4 390 64 402 40H520L534 40 546 14 560 70 574 4 590 64 602 40H720H1200"/></svg><p>Our coaching programs empower aspiring and established leaders to develop the skills needed to inspire teams and achieve organizational goals.</p></div></div></li>
+    <li class="acc-i open"><button class="acc-b" type="button" aria-expanded="true"><span class="num">01</span><span class="acc-t">Retail Sales</span><span class="acc-x" aria-hidden="true"></span></button><div class="acc-p"><div class="acc-in"><p>We partner with top brands to provide engaging retail sales solutions that drive customer acquisition and revenue growth. Our approach focuses on personalized customer experiences that leave a lasting impression and build brand loyalty.</p></div></div></li>
+    <li class="acc-i"><button class="acc-b" type="button" aria-expanded="false"><span class="num">02</span><span class="acc-t">Campaign Management</span><span class="acc-x" aria-hidden="true"></span></button><div class="acc-p"><div class="acc-in"><p>From strategy to execution, we manage every detail of sales campaigns to ensure maximum impact and measurable results, aligning client goals with market trends.</p></div></div></li>
+    <li class="acc-i"><button class="acc-b" type="button" aria-expanded="false"><span class="num">03</span><span class="acc-t">Leadership Coaching</span><span class="acc-x" aria-hidden="true"></span></button><div class="acc-p"><div class="acc-in"><p>Our coaching programs empower aspiring and established leaders to develop the skills needed to inspire teams and achieve organizational goals.</p></div></div></li>
   </ul>
 </section>
 
@@ -212,6 +222,6 @@
 <script src="vendor/gsap.min.js"></script>
 <script src="vendor/ScrollTrigger.min.js"></script>
 <script src="vendor/lenis.min.js"></script>
-<script src="site.js?v=49"></script>
+<script src="site.js?v=50"></script>
 </body>
 </html>

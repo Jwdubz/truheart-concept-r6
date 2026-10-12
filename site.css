@@ -790,3 +790,119 @@ section[id]{scroll-margin-top:64px}
  .creed.story,.wires,.praise,.cases,.services,.talk{padding-top:9vh!important}
  .wires,.praise,.services{padding-bottom:7vh!important}
 }
+/* ===== r14 gate fixes ===== */
+/* one heading voice: every section heading in the display face */
+.pulse-head .h2,.cases-head .h2,.talk-hl span:last-child{font-family:Disp!important;font-weight:700!important;text-transform:uppercase!important;letter-spacing:0!important;line-height:.92!important}
+.pulse-head .h2,.cases-head .h2{font-size:clamp(46px,6vw,108px)!important}
+.talk-hl span:last-child{font-size:1em!important;margin-top:0!important}
+.money strong{font-family:Disp;font-weight:700;letter-spacing:0;font-size:clamp(34px,3.2vw,58px)}
+/* sections own their colour (no lagging fixed backdrop, no dead bands) */
+.bg{transition:none!important;background:#0b0b0b!important}
+body{transition:none}
+.hero,.creed,.pulse,.wires,.foot{background:#0b0b0b;color:#f3f1ec}
+.praise,.cases{background:#f3f1ec;color:#0b0b0b}
+.services,.talk{background:#cf2d20;color:#f3f1ec}
+.creed.story{padding-bottom:4vh!important}
+.wires{padding-bottom:8vh!important}
+.praise{padding-top:9vh!important}
+.cases{padding-top:6vh!important}
+/* cream to red: one seamless gradient, no hairline */
+.cases{margin-bottom:-1px}
+.services::before{top:-2px;height:calc(18vh + 2px)}
+.services .svc-head{padding-top:9vh}
+/* header: no opaque band; a soft fade in the section's own colour, switched instantly */
+.bar,.bar.solid{transition:transform .5s var(--ease)!important;box-shadow:none!important}
+.bar.solid{background:linear-gradient(to bottom,var(--hb,#0b0b0b) 0,var(--hb,#0b0b0b) 38%,color-mix(in srgb,var(--hb,#0b0b0b) 70%,transparent) 64%,transparent 100%)!important;padding-bottom:30px}
+.bar .mark,.bar .btn{transition:color .15s,background-color .15s,border-color .15s,transform .25s ease,box-shadow .25s ease}
+.bar.on-red .mark i,body.on-red .bar .mark i{color:#0b0b0b!important}
+.mark i{display:inline-block}
+.bar.on-light .mark{color:#0b0b0b}
+/* hero: fill the left of the first screen with a composed facts row */
+.hero-facts{display:none}
+@media (min-width:901px){
+ .hero-facts{display:block;position:absolute;z-index:2;left:var(--pad);top:clamp(96px,14vh,140px);width:calc(100vw - var(--fw) - var(--pad) - 48px);max-width:720px}
+ .hf-k{font:600 14px UI;letter-spacing:.14em;text-transform:uppercase;color:#cf2d20;margin:0 0 18px;display:flex;align-items:center;gap:14px}
+ .hf-k::after{content:"";flex:1;height:1px;background:rgba(243,241,236,.22)}
+ .hf-l{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:repeat(3,minmax(0,1fr))}
+ .hf-l li{display:flex;flex-direction:column;gap:8px;padding:0 18px;border-left:1px solid rgba(243,241,236,.18)}
+ .hf-l li:first-child{padding-left:0;border-left:0}
+ .hf-l strong{font:700 clamp(30px,3vw,52px)/.95 Disp;text-transform:uppercase;color:#f3f1ec;white-space:nowrap}
+ .hf-l li:first-child strong{color:#cf2d20}
+ .hf-l span{font:500 15px/1.3 UI;color:rgba(243,241,236,.78)}
+ .hero.intro-on .hero-facts{opacity:0}
+ .hero-facts{transition:opacity .8s ease .3s}
+ /* film at native height (720px source) */
+ .hero{--fw:min(612px,calc((100svh - 0px)*.85))}
+ .hero .hero-film{height:min(100%,720px)!important}
+}
+@media (min-width:901px) and (max-height:760px){.hero-facts{display:none}}
+/* hero film presentation: native-ish scale, faint film grain, gentle tone (no fake filters) */
+.hero .hero-film video{filter:contrast(1.04) saturate(1.04);image-rendering:auto}
+.hero .hero-film::before{content:"";position:absolute;inset:-50%;z-index:1;pointer-events:none;opacity:.07;mix-blend-mode:overlay;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='2' stitchTiles='stitch'/%3E%3CfeColorMatrix values='0 0 0 0 .5 0 0 0 0 .5 0 0 0 0 .5 0 0 0 1 0'/%3E%3C/filter%3E%3Crect width='160' height='160' filter='url(%23n)'/%3E%3C/svg%3E");animation:grain 1s steps(6) infinite}
+@keyframes grain{0%{transform:translate(0,0)}20%{transform:translate(-3%,2%)}40%{transform:translate(2%,-3%)}60%{transform:translate(-2%,-1%)}80%{transform:translate(3%,3%)}100%{transform:translate(0,0)}}
+.paused .hero .hero-film::before{animation:none}
+.hero .hero-film{overflow:hidden}
+/* phone hero: whole frame at its own aspect, face always in, type below */
+@media (max-width:900px){
+ .hero .hero-film{top:56px!important;bottom:auto!important;height:auto!important;aspect-ratio:612/720!important;-webkit-mask-image:linear-gradient(to top,transparent 0,#000 34%);mask-image:linear-gradient(to top,transparent 0,#000 34%)}
+ .hero .hero-film video{object-fit:cover!important;object-position:50% 0!important}
+ .hero .hero-film::after{display:none}
+}
+/* accordion: titles stay visible on hover; open state reads by weight, not stray glyphs */
+.acc-b:hover .acc-t,.acc-i.open .acc-b .acc-t{color:#f3f1ec!important}
+.acc-b:hover .acc-t{transform:translateX(14px);text-decoration:none}
+.acc-b:hover .num{color:#f3f1ec}
+.acc-ecg{display:none!important}
+.acc-p>.acc-in>p{padding-top:4px}
+.acc-i{transition:background-color .3s}
+.acc-i:hover{background:rgba(0,0,0,.06)}
+/* stat cards: shared rows so figures and captions sit on common lines */
+@media (min-width:901px){
+ .money{grid-template-rows:auto auto}
+ .money li{display:grid;grid-template-rows:subgrid;grid-row:span 2;gap:16px;align-content:stretch}
+ .money li strong{align-self:start}
+ .money li span{align-self:end}
+}
+/* hovers that read: lift, shadow, red rule */
+.money li,.pwall li,.case{position:relative;transition:transform .35s cubic-bezier(.2,.7,.2,1),box-shadow .35s ease,background-color .3s ease,color .3s ease!important}
+.money li::after,.pwall li::after,.case::after{content:"";position:absolute;left:0;right:0;top:0;height:4px;background:#cf2d20;transform:scaleX(0);transform-origin:0 50%;transition:transform .45s cubic-bezier(.2,.7,.2,1);border-radius:10px 10px 0 0;z-index:3;pointer-events:none}
+.money li.red::after,.case-red::after,.pwall li.big:hover::after{background:#f3f1ec}
+@media (hover:hover){
+ .money li:hover,.pwall li:hover,.case:hover{transform:translateY(-8px);box-shadow:0 26px 50px -26px rgba(0,0,0,.65)}
+ .money li:hover::after,.pwall li:hover::after,.case:hover::after{transform:scaleX(1)}
+ .money li:hover{background:#f3f1ec;color:#0b0b0b}
+ .money li.red:hover{background:#b3241a;color:#f3f1ec}
+ .pwall li:hover{background:#0b0b0b;color:#f3f1ec}
+ .pwall li.big:hover{background:#cf2d20;color:#f3f1ec}
+}
+/* cheque card: full frame on top, caption beneath, nothing cropped */
+.case-cheque{display:flex;flex-direction:column;justify-content:flex-start;background:#0b0b0b;width:calc((clamp(380px,52vh,520px) - 64px)*1.7763)!important}
+.case-cheque video{position:relative!important;inset:auto!important;width:100%!important;height:auto!important;aspect-ratio:1080/608;object-fit:cover!important;object-position:50% 50%!important;flex:none}
+.case-cheque .case-cap{position:relative;flex:1;align-items:center;padding:0 18px}
+@media (max-width:900px){
+ .case-cheque{width:84vw!important;height:auto!important}
+ .case-cheque .case-cap{padding:14px 16px}
+}
+/* phone details */
+@media (max-width:900px){
+ .wpts li:last-child strong{bottom:24px!important;transform:translateX(calc(-100% - 16px))!important}
+ .bar #pause{display:none!important}
+}
+@media (max-width:600px){
+ .money{grid-template-columns:1fr!important;gap:12px}
+ .money li{flex-direction:row!important;align-items:baseline;justify-content:space-between;gap:18px;padding:22px 20px!important;min-height:0!important}
+ .money li strong{flex:0 0 auto;max-width:48%}
+ .money li span{flex:1;text-align:right}
+}
+.menu-pz{display:none}
+@media (max-width:900px){.menu-pz{display:block}}
+.menu-pause{all:unset;cursor:pointer;font:600 17px UI;display:inline-flex;align-items:center;min-height:46px;padding:0 20px;border:1.5px solid rgba(243,241,236,.6);border-radius:999px;color:#f3f1ec}
+.menu-pause:focus-visible{outline:2px solid #f3f1ec;outline-offset:3px}
+.talk-type{min-width:0}
+@media (max-width:900px){.talk-hl{font-size:min(15vw,96px)!important}}
+@media (max-width:600px){
+ .money li{flex-direction:column!important;align-items:flex-start;gap:10px}
+ .money li strong{max-width:none}
+ .money li span{text-align:left}
+}
+@media (max-width:900px){.case-cheque{align-self:flex-start}}
