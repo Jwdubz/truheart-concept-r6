@@ -1063,3 +1063,10 @@ html,body{overflow-x:clip}
 .wpts li:last-child span.wk{top:58px!important}
 @media (max-width:900px){.wpts li:nth-child(4) span.wk,.wpts li:nth-child(7) span.wk{top:12px!important}.wpts li:last-child span.wk{top:58px!important}}
 @media (max-width:900px){.wpts li:nth-child(4) span.wk{top:15px!important}.wpts li:last-child span.wk{top:118px!important}}
+@media (max-width:900px){.wpts li:nth-child(4) span.wk{top:40px!important}}
+/* phone: steep climbs - chip sits just left of its dot, tucked under the amount, clear of the line */
+@media (max-width:900px){
+ .wpts li:nth-child(4) span.wk,.wpts li:last-child span.wk{top:-22px!important;transform:translateX(calc(-100% - 12px))!important}
+ .wpts li:nth-child(4) strong,.wpts li:last-child strong{bottom:30px!important}
+ .wpts li:nth-child(7) span.wk{transform:translateX(-50%)!important;top:24px!important}
+}
